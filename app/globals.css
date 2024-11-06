@@ -1,0 +1,537 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.image-button {
+  width: 494px;
+  height: 119px;
+  position: absolute; 
+  top: 549px;
+  left: 473px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.image-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.moving-image {
+  position: fixed;
+  top: 0px;  /* Ajusta según lo necesites */
+  right: 0px;  /* Ajusta según lo necesites */
+  width: 30%; /* Ajusta el tamaño de la imagen */
+  margin: 0;       /* Asegura que no haya margen adicional */
+  padding: 0;      /* Asegura que no haya padding adicional */
+  height: auto;
+  transform-origin: bottom right;  /* Establece el punto de pivote en la parte inferior derecha */
+  animation: wave 7s ease-in-out infinite alternate; /* Animación de saludo */
+}
+
+
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg); /* Posición inicial */
+  }
+  50% {
+    transform: rotate(-10deg); /* Menor giro hacia la izquierda */
+  }
+  100% {
+    transform: rotate(10deg); /* Menor giro hacia la derecha */
+  }
+}
+
+
+.rotating-logo {
+  position: fixed;
+  width: 100px; /* Ajusta el tamaño según lo necesites */
+  height: auto;
+  bottom: 0%; /* Ajusta la distancia desde la parte inferior */
+  right: 0%;
+  animation: spin 5s linear infinite; /* Duración de 5 segundos para una rotación lenta y continua */
+  transform-style: preserve-3d; /* Mantiene el efecto 3D */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg); /* Inicio del giro */
+  }
+  100% {
+    transform: rotateY(360deg); /* Giro completo en 3D */
+  }
+}
+/*mainnn*/
+
+.page-container {
+  width: 100%;
+}
+
+.full-screen-background {
+  background-image: url('/Artboard 1.png'); /* Cambia el nombre del archivo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff; /* Ajusta el color de fondo si lo necesitas */
+  position: relative; /* Establecer posición relativa para el contenido */
+}
+
+.flores {
+  position: absolute; /* Permite colocar la imagen de forma precisa */
+  top: 1200px; /* Ajusta la distancia desde la parte superior */
+  right: 0px; /* Ajusta la distancia desde la derecha */
+  z-index: 10; 
+
+  transform: rotate(0deg); /* Rota la imagen 45 grados */
+  transition: transform 0s ease;
+}
+
+.counter-container {
+  display: flex; /* Usa flexbox para alinear los contadores horizontalmente */
+  justify-content: space-around; /* Espacio igual entre contadores */
+  margin: 20px 0; /* Margen superior e inferior */
+}
+
+.counter {
+  width: 70%; /* Ocupa un porcentaje del ancho total */
+  text-align: center;
+  color: #ffffff; /* Un tono más suave que el negro */
+  background-color: #000000; /* Fondo más claro */
+  font-family: 'Courier New', Courier, monospace; /* Fuente con estética vintage */
+  padding: 20px;
+  border: 2px solid #000000; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.counter span {
+  display: block; /* Hace que cada unidad de tiempo aparezca en una nueva línea */
+  font-size: 32px; /* Tamaño de letra específico para cada unidad */
+  margin: 5px 0; /* Espaciado vertical entre las unidades */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.1); /* Sombra para un efecto desgastado */
+  transition: transform 0.3s ease; /* Transición para efecto de hover */
+}
+
+.counter span:hover {
+  transform: translateY(-2px); /* Leve elevación al pasar el cursor */
+}
+
+.vintage {
+  filter: grayscale(100%); /* Efecto blanco y negro */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil para un efecto vintage */
+}
+
+.llevas {
+  text-align: left; /* Alinea el título al borde izquierdo */
+  margin-left: 0px; /* Añade algo de espacio debajo del título */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  width: 8%;
+  margin-top: 60px;
+
+  
+}
+
+.tv {
+  width: 500px; /* Asegúrate de especificar el tamaño en píxeles */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 30px;/* Espaciado superior para separar de los contadores */
+  margin-left: 300px;
+}
+
+.box {
+  position: absolute; /* Permite colocar la imagen de forma precisa */
+  top: 1100px; /* Ajusta la distancia desde la parte superior */
+  right: 20px; /* Ajusta la distancia desde la derecha */
+  z-index: 10; 
+  margin-right: 300px;
+
+}
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-5px, 5px) rotate(-2deg); }
+  20% { transform: translate(5px, -5px) rotate(2deg); }
+  30% { transform: translate(-5px, 5px) rotate(-2deg); }
+  40% { transform: translate(5px, -5px) rotate(2deg); }
+  50% { transform: translate(-5px, 5px) rotate(-2deg); }
+  60% { transform: translate(5px, -5px) rotate(2deg); }
+  70% { transform: translate(-5px, 5px) rotate(-2deg); }
+  80% { transform: translate(5px, -5px) rotate(2deg); }
+  90% { transform: translate(-5px, 5px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake-animation {
+  animation: shake 7s infinite; /* Repite la animación cada 0.5 segundos */
+}
+
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(300px); /* Mueve el contenido a la derecha */
+  }
+}
+@keyframes shadow-movement {
+  0% {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* En su posición original */
+  }
+  40% {
+    transform: translateY(-20px); /* Subir */
+  }
+  60% {
+    transform: translateY(-10px); /* Un poco menos arriba */
+  }
+}
+
+.tulipanes-bounce {
+  animation: bounce 7s ease infinite; /* Aplica la animación de rebote */
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1; /* Opacidad completa */
+  }
+  20% {
+    opacity: 0.7; /* Opacidad reducida */
+  }
+  40% {
+    opacity: 0.4; /* Opacidad aún más reducida */
+  }
+  60% {
+    opacity: 0.7; /* Regresa a opacidad reducida */
+  }
+  80% {
+    opacity: 1; /* Regresa a opacidad completa */
+  }
+}
+
+.flicker-animation {
+  animation: flicker 5s infinite; /* Cambia la duración según sea necesario */
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(2px, 2px);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translate(2px, 2px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.glitch-animation {
+  animation: glitch 5s infinite; /* Ajusta la duración para velocidad */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing {
+  overflow: hidden; /* Ensures the content is hidden until animated */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  border-right: 2px solid; /* Creates the cursor effect */
+  width: 0; /* Initial width */
+  animation: typing 2s steps(30, end) infinite alternate; /* Typing animation */
+
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.cita {
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 100px;
+}
+
+.vintage-music-controls {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin: 20px;
+  left: 30px;
+}
+
+.vintage-button {
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.vintage-button:hover {
+  transform: scale(1.1);
+  background-color: #eeff00;
+}
+
+/*gallerrrrry*/
+
+.vintage-tv-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #111;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.vintage-tv-frame {
+  position: relative;
+  width: 90vw; /* Ajusta al tamaño deseado */
+  height: 60vw; /* Mantén proporción */
+  max-width: 1000px;
+  max-height: 700px;
+  background: #333;
+  border: 20px solid #222;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vintage-tv-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  overflow: hidden;
+}
+
+.vintage-tv-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: flicker 0.1s infinite alternate;
+}
+
+.vintage-tv-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+/* payasito*/
+/* styles/global.css */
+.clownPageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: red;
+  z-index: 2;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 500px;
+  animation: jumpScare 1s ease-in-out forwards;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes jumpScare {
+  0% {
+    transform: scale(0) rotate(90deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* styles/global.css */
+
+/* styles/global.css */
+
+.clownPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black; /* Fondo negro */
+  color: white; /* Asegura que el texto sea visible sobre el fondo negro */
+  padding: 20px;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espacio entre la imagen y el botón */
+}
+
+.imageContainer {
+  width: 500px; /* Limitar el tamaño de la imagen */
+}
+
+.backButton {
+  background-color: #ff6347; /* Color visible, como el rojo */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: #d9534f; /* Cambio de color al pasar el ratón */
+  transform: scale(1.1); /* Agrandar el botón ligeramente */
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+
+
+
+/*carta*/
+
+/* styles/global.css */
+
+/* styles/global.css */
+
+.letter-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alineamos al principio (arriba) */
+  align-items: flex-start; /* Alineamos a la izquierda */
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  padding: 20px;
+  padding-left: 40px; /* Añadimos espacio a la izquierda */
+}
+
+.letter-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.letter-content {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  text-align: left; /* Justificamos el texto a la izquierda */
+  width: 100%; /* Aseguramos que el texto ocupe todo el ancho disponible */
+}
+
+.letter {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.2s ease;
+  padding: 0 2px;
+}
+
+.letter:hover {
+  transform: rotate(10deg) scale(1.2);
+  color: #ff6347; /* Puedes cambiar el color al que prefieras */
+}
+
