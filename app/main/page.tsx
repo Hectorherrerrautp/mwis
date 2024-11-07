@@ -46,17 +46,22 @@ const LoveMessage = () => {
   );
 };
 
+// Interfaz para las propiedades del componente BirthdayCounter
+interface BirthdayCounterProps {
+  date: string;  // Tipo string para la fecha
+  label: string; // Tipo string para la etiqueta
+}
 
 // Componente para el contador de cumpleaños
-const BirthdayCounter = () => {
+const BirthdayCounter: React.FC<BirthdayCounterProps> = ({ date, label }) => {
   const [timeAlive, setTimeAlive] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const birthday = new Date("2002-12-18T18:00:00");
-    
+    const targetDate = new Date(date);
+
     const interval = setInterval(() => {
       const now = new Date();
-      const diff = Math.floor((now.getTime() - birthday.getTime()) / 1000);
+      const diff = Math.floor((now.getTime() - targetDate.getTime()) / 1000);
 
       const days = Math.floor(diff / (24 * 60 * 60));
       const hours = Math.floor((diff % (24 * 60 * 60)) / (60 * 60));
@@ -67,11 +72,11 @@ const BirthdayCounter = () => {
     }, 1000);
 
     return () => clearInterval(interval); // Limpieza del intervalo
-  }, []);
+  }, [date]);
 
   return (
     <div className="counter-container" style={{ textAlign: 'left', marginTop: '20px' }}>
-      <h2 className="llevas ">Alegría al mundo</h2>
+      <h2 className="llevas">{label}</h2>
       <div className="counter">
         <span>{timeAlive.days} días </span>
         <span>{timeAlive.hours} horas </span>
@@ -105,7 +110,7 @@ const AnotherBirthdayCounter = () => {
 
   return (
     <div className="counter-container" style={{ textAlign: 'left', marginTop: '20px' }}>
-      <h2 className="llevas ">Alegría a mi mundo</h2>
+      <h2 className="llevas">Alegría a mi mundo</h2>
       <div className="counter">
         <span>{timeAlive.days} días </span>
         <span>{timeAlive.hours} horas </span>
@@ -135,7 +140,7 @@ export default function Home() {
           height={400} 
           className="content-image"
         />
-                <div className="vintage-music-controls">
+        <div className="vintage-music-controls">
           <button onClick={prevTrack} className="vintage-button">◁==</button>
           <button onClick={playMusic} className="vintage-button">▷</button>
           <button onClick={pauseMusic} className="vintage-button">||</button>
@@ -151,8 +156,11 @@ export default function Home() {
           />
         </Link>
         <div className="counters-container">
-          <BirthdayCounter /> {/* Contador de cumpleaños */}
-          <AnotherBirthdayCounter /> {/* Contador adicional */}
+          <BirthdayCounter 
+            date="2002-12-18T18:00:00" 
+            label="Alegría al mundo" 
+          />
+          <AnotherBirthdayCounter />
         </div>
         <Link href="/gallery">
             <Image
@@ -174,9 +182,8 @@ export default function Home() {
         </Link>
         <h1 className="cita">"Esta pagina fue desarrollada para la mejor novia del mundo"</h1>
         <LoveMessage />
-        
-        
       </div>
     </div>
   );
 }
+
